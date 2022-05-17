@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarRentalManagementsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CAR">
+    <Key>
+      <PropertyRef Name="C_ID" />
+    </Key>
+    <Property Name="C_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_REGNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CMODEL_ID" Type="Int32" />
+    <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CARMODEL" Relationship="Self.FK__CAR__CMODEL_ID__44FF419A" FromRole="CAR" ToRole="CARMODEL" />
+    <NavigationProperty Name="CARRENTs" Relationship="Self.FK__CARRENT__C_ID__47DBAE45" FromRole="CAR" ToRole="CARRENT" />
+  </EntityType>
+  <EntityType Name="CARMAKE">
+    <Key>
+      <PropertyRef Name="CMAKE_ID" />
+    </Key>
+    <Property Name="CMAKE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CMAKE_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CARMODELs" Relationship="Self.FK__CARMODEL__CMAKE___403A8C7D" FromRole="CARMAKE" ToRole="CARMODEL" />
+  </EntityType>
+  <EntityType Name="CARMODEL">
+    <Key>
+      <PropertyRef Name="CMODEL_ID" />
+    </Key>
+    <Property Name="CMODEL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CMAKE_ID" Type="Int32" />
+    <Property Name="CMODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CTYPE_ID" Type="Int32" />
+    <NavigationProperty Name="CARs" Relationship="Self.FK__CAR__CMODEL_ID__44FF419A" FromRole="CARMODEL" ToRole="CAR" />
+    <NavigationProperty Name="CARMAKE" Relationship="Self.FK__CARMODEL__CMAKE___403A8C7D" FromRole="CARMODEL" ToRole="CARMAKE" />
+    <NavigationProperty Name="CARTYPE" Relationship="Self.FK__CARMODEL__CTYPE___412EB0B6" FromRole="CARMODEL" ToRole="CARTYPE" />
+  </EntityType>
+  <EntityType Name="CARRENT">
+    <Key>
+      <PropertyRef Name="CR_ID" />
+    </Key>
+    <Property Name="CR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="C_ID" Type="Int32" />
+    <Property Name="CR_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CR_RENT" Type="Int32" Nullable="false" />
+    <Property Name="CR_SDEPOSIT" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CAR" Relationship="Self.FK__CARRENT__C_ID__47DBAE45" FromRole="CARRENT" ToRole="CAR" />
+    <NavigationProperty Name="CARRENTALs" Relationship="Self.FK__CARRENTAL__CR_ID__4E88ABD4" FromRole="CARRENT" ToRole="CARRENTAL" />
+  </EntityType>
+  <EntityType Name="CARRENTAL">
+    <Key>
+      <PropertyRef Name="CRENTAL_ID" />
+    </Key>
+    <Property Name="CRENTAL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CR_ID" Type="Int32" />
+    <Property Name="CRENTAL_HIREDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CRENTAL_RETURNDATE" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CRENTAL_REQUIREDFOR" Type="Int32" Nullable="false" />
+    <Property Name="CUST_ID" Type="Int32" />
+    <Property Name="CRENTAL_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CARRENT" Relationship="Self.FK__CARRENTAL__CR_ID__4E88ABD4" FromRole="CARRENTAL" ToRole="CARRENT" />
+    <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__CARRENTAL__CUST___4F7CD00D" FromRole="CARRENTAL" ToRole="CUSTOMER" />
+  </EntityType>
+  <EntityType Name="CARTYPE">
+    <Key>
+      <PropertyRef Name="CTYPE_ID" />
+    </Key>
+    <Property Name="CTYPE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CTYPE_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CARMODELs" Relationship="Self.FK__CARMODEL__CTYPE___412EB0B6" FromRole="CARTYPE" ToRole="CARMODEL" />
+  </EntityType>
+  <EntityType Name="CUSTOMER">
+    <Key>
+      <PropertyRef Name="CUST_ID" />
+    </Key>
+    <Property Name="CUST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUST_CNIC" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUST_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUST_AGE" Type="Int32" Nullable="false" />
+    <Property Name="CUST_CONTACT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CUST_ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CARRENTALs" Relationship="Self.FK__CARRENTAL__CUST___4F7CD00D" FromRole="CUSTOMER" ToRole="CARRENTAL" />
+  </EntityType>
+  <EntityType Name="DEPARTMENT">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="D_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="MANAGERs" Relationship="Self.FK__MANAGER__D_ID__5629CD9C" FromRole="DEPARTMENT" ToRole="MANAGER" />
+  </EntityType>
+  <EntityType Name="MANAGER">
+    <Key>
+      <PropertyRef Name="M_ID" />
+    </Key>
+    <Property Name="M_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="M_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="M_AGE" Type="Int32" Nullable="false" />
+    <Property Name="M_CONTACT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="M_PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="D_ID" Type="Int32" />
+    <NavigationProperty Name="DEPARTMENT" Relationship="Self.FK__MANAGER__D_ID__5629CD9C" FromRole="MANAGER" ToRole="DEPARTMENT" />
+  </EntityType>
+  <Association Name="FK__CAR__CMODEL_ID__44FF419A">
+    <End Role="CARMODEL" Type="Self.CARMODEL" Multiplicity="0..1" />
+    <End Role="CAR" Type="Self.CAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARMODEL">
+        <PropertyRef Name="CMODEL_ID" />
+      </Principal>
+      <Dependent Role="CAR">
+        <PropertyRef Name="CMODEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CARRENT__C_ID__47DBAE45">
+    <End Role="CAR" Type="Self.CAR" Multiplicity="0..1" />
+    <End Role="CARRENT" Type="Self.CARRENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAR">
+        <PropertyRef Name="C_ID" />
+      </Principal>
+      <Dependent Role="CARRENT">
+        <PropertyRef Name="C_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CARMODEL__CMAKE___403A8C7D">
+    <End Role="CARMAKE" Type="Self.CARMAKE" Multiplicity="0..1" />
+    <End Role="CARMODEL" Type="Self.CARMODEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARMAKE">
+        <PropertyRef Name="CMAKE_ID" />
+      </Principal>
+      <Dependent Role="CARMODEL">
+        <PropertyRef Name="CMAKE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CARMODEL__CTYPE___412EB0B6">
+    <End Role="CARTYPE" Type="Self.CARTYPE" Multiplicity="0..1" />
+    <End Role="CARMODEL" Type="Self.CARMODEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARTYPE">
+        <PropertyRef Name="CTYPE_ID" />
+      </Principal>
+      <Dependent Role="CARMODEL">
+        <PropertyRef Name="CTYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CARRENTAL__CR_ID__4E88ABD4">
+    <End Role="CARRENT" Type="Self.CARRENT" Multiplicity="0..1" />
+    <End Role="CARRENTAL" Type="Self.CARRENTAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARRENT">
+        <PropertyRef Name="CR_ID" />
+      </Principal>
+      <Dependent Role="CARRENTAL">
+        <PropertyRef Name="CR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CARRENTAL__CUST___4F7CD00D">
+    <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+    <End Role="CARRENTAL" Type="Self.CARRENTAL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMER">
+        <PropertyRef Name="CUST_ID" />
+      </Principal>
+      <Dependent Role="CARRENTAL">
+        <PropertyRef Name="CUST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MANAGER__D_ID__5629CD9C">
+    <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="0..1" />
+    <End Role="MANAGER" Type="Self.MANAGER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPARTMENT">
+        <PropertyRef Name="D_ID" />
+      </Principal>
+      <Dependent Role="MANAGER">
+        <PropertyRef Name="D_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CarRentalManagementsystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CARs" EntityType="Self.CAR" />
+    <EntitySet Name="CARMAKEs" EntityType="Self.CARMAKE" />
+    <EntitySet Name="CARMODELs" EntityType="Self.CARMODEL" />
+    <EntitySet Name="CARRENTs" EntityType="Self.CARRENT" />
+    <EntitySet Name="CARRENTALs" EntityType="Self.CARRENTAL" />
+    <EntitySet Name="CARTYPEs" EntityType="Self.CARTYPE" />
+    <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+    <EntitySet Name="DEPARTMENTs" EntityType="Self.DEPARTMENT" />
+    <EntitySet Name="MANAGERs" EntityType="Self.MANAGER" />
+    <AssociationSet Name="FK__CAR__CMODEL_ID__44FF419A" Association="Self.FK__CAR__CMODEL_ID__44FF419A">
+      <End Role="CARMODEL" EntitySet="CARMODELs" />
+      <End Role="CAR" EntitySet="CARs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CARRENT__C_ID__47DBAE45" Association="Self.FK__CARRENT__C_ID__47DBAE45">
+      <End Role="CAR" EntitySet="CARs" />
+      <End Role="CARRENT" EntitySet="CARRENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CARMODEL__CMAKE___403A8C7D" Association="Self.FK__CARMODEL__CMAKE___403A8C7D">
+      <End Role="CARMAKE" EntitySet="CARMAKEs" />
+      <End Role="CARMODEL" EntitySet="CARMODELs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CARMODEL__CTYPE___412EB0B6" Association="Self.FK__CARMODEL__CTYPE___412EB0B6">
+      <End Role="CARTYPE" EntitySet="CARTYPEs" />
+      <End Role="CARMODEL" EntitySet="CARMODELs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CARRENTAL__CR_ID__4E88ABD4" Association="Self.FK__CARRENTAL__CR_ID__4E88ABD4">
+      <End Role="CARRENT" EntitySet="CARRENTs" />
+      <End Role="CARRENTAL" EntitySet="CARRENTALs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CARRENTAL__CUST___4F7CD00D" Association="Self.FK__CARRENTAL__CUST___4F7CD00D">
+      <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+      <End Role="CARRENTAL" EntitySet="CARRENTALs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MANAGER__D_ID__5629CD9C" Association="Self.FK__MANAGER__D_ID__5629CD9C">
+      <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+      <End Role="MANAGER" EntitySet="MANAGERs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

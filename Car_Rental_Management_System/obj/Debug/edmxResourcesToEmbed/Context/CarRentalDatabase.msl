@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarRentalManagementsystemModelStoreContainer" CdmEntityContainer="CarRentalManagementsystemEntities">
+    <EntitySetMapping Name="CARs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CAR">
+        <MappingFragment StoreEntitySet="CAR">
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="C_REGNO" ColumnName="C_REGNO" />
+          <ScalarProperty Name="CMODEL_ID" ColumnName="CMODEL_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARMAKEs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CARMAKE">
+        <MappingFragment StoreEntitySet="CARMAKE">
+          <ScalarProperty Name="CMAKE_ID" ColumnName="CMAKE_ID" />
+          <ScalarProperty Name="CMAKE_NAME" ColumnName="CMAKE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARMODELs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CARMODEL">
+        <MappingFragment StoreEntitySet="CARMODEL">
+          <ScalarProperty Name="CMODEL_ID" ColumnName="CMODEL_ID" />
+          <ScalarProperty Name="CMAKE_ID" ColumnName="CMAKE_ID" />
+          <ScalarProperty Name="CMODEL_NAME" ColumnName="CMODEL_NAME" />
+          <ScalarProperty Name="CTYPE_ID" ColumnName="CTYPE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARRENTs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CARRENT">
+        <MappingFragment StoreEntitySet="CARRENT">
+          <ScalarProperty Name="CR_ID" ColumnName="CR_ID" />
+          <ScalarProperty Name="C_ID" ColumnName="C_ID" />
+          <ScalarProperty Name="CR_TYPE" ColumnName="CR_TYPE" />
+          <ScalarProperty Name="CR_RENT" ColumnName="CR_RENT" />
+          <ScalarProperty Name="CR_SDEPOSIT" ColumnName="CR_SDEPOSIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARRENTALs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CARRENTAL">
+        <MappingFragment StoreEntitySet="CARRENTAL">
+          <ScalarProperty Name="CRENTAL_ID" ColumnName="CRENTAL_ID" />
+          <ScalarProperty Name="CR_ID" ColumnName="CR_ID" />
+          <ScalarProperty Name="CRENTAL_HIREDATE" ColumnName="CRENTAL_HIREDATE" />
+          <ScalarProperty Name="CRENTAL_RETURNDATE" ColumnName="CRENTAL_RETURNDATE" />
+          <ScalarProperty Name="CRENTAL_REQUIREDFOR" ColumnName="CRENTAL_REQUIREDFOR" />
+          <ScalarProperty Name="CUST_ID" ColumnName="CUST_ID" />
+          <ScalarProperty Name="CRENTAL_STATUS" ColumnName="CRENTAL_STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARTYPEs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CARTYPE">
+        <MappingFragment StoreEntitySet="CARTYPE">
+          <ScalarProperty Name="CTYPE_ID" ColumnName="CTYPE_ID" />
+          <ScalarProperty Name="CTYPE_TYPE" ColumnName="CTYPE_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="CUST_ID" ColumnName="CUST_ID" />
+          <ScalarProperty Name="CUST_CNIC" ColumnName="CUST_CNIC" />
+          <ScalarProperty Name="CUST_NAME" ColumnName="CUST_NAME" />
+          <ScalarProperty Name="CUST_AGE" ColumnName="CUST_AGE" />
+          <ScalarProperty Name="CUST_CONTACT" ColumnName="CUST_CONTACT" />
+          <ScalarProperty Name="CUST_ADDRESS" ColumnName="CUST_ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENTs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+          <ScalarProperty Name="D_NAME" ColumnName="D_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MANAGERs">
+      <EntityTypeMapping TypeName="CarRentalManagementsystemModel.MANAGER">
+        <MappingFragment StoreEntitySet="MANAGER">
+          <ScalarProperty Name="M_ID" ColumnName="M_ID" />
+          <ScalarProperty Name="M_NAME" ColumnName="M_NAME" />
+          <ScalarProperty Name="M_AGE" ColumnName="M_AGE" />
+          <ScalarProperty Name="M_CONTACT" ColumnName="M_CONTACT" />
+          <ScalarProperty Name="M_PASSWORD" ColumnName="M_PASSWORD" />
+          <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

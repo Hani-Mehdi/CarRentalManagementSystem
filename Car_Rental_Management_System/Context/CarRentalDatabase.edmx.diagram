@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa6b31c0e20845999e52087242dee5e7" Name="Diagram1">
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CAR" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CARMAKE" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CARMODEL" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CARRENT" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CARRENTAL" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CARTYPE" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.CUSTOMER" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.DEPARTMENT" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarRentalManagementsystemModel.MANAGER" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__CAR__CMODEL_ID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__CARRENT__C_ID__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__CARMODEL__CMAKE___403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__CARMODEL__CTYPE___412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__CARRENTAL__CR_ID__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__CARRENTAL__CUST___4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="CarRentalManagementsystemModel.FK__MANAGER__D_ID__5629CD9C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
